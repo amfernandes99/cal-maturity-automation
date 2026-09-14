@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project generated files
+output/
+
+#Google Cloud Credentials
+service_account.json
