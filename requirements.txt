@@ -3,3 +3,4 @@ openpyxl
 xlsxwriter
 google-cloud-bigquery
 pyarrow
+pytest
