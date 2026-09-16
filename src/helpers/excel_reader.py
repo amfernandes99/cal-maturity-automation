@@ -12,15 +12,6 @@ def read_cal_export(file_path: Path) -> pd.DataFrame:
 
     return df
 
-if __name__ == "__main__":
-    test_file = Path(__file__).resolve().parents[2] / "sample_data" / "Vehicle_A.xlsx"
-
-    df = read_cal_export(test_file)
-
-    print(df.head())
-    print()
-    print(f"Rows loaded: {len(df)}")
-
 # Extracting the metadata from the calibration export Excel file.
 def extract_metadata(file_path: Path) -> dict:
     metadata_df = pd.read_excel(

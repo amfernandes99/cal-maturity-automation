@@ -1,6 +1,7 @@
 from pathlib import Path
 import pandas as pd
 
+
 # Writing the master workbook to an Excel file.
 def write_master_workbook(
     master_data: pd.DataFrame,

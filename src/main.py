@@ -11,11 +11,12 @@ SAMPLE_DATA_DIR = Path(__file__).resolve().parents[1] / "sample_data"
 OUTPUT_DIR = Path(__file__).resolve().parents[1] / "output"
 OUTPUT_FILE = OUTPUT_DIR / "CAL_Master_Tracker.xlsx"
 
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def process_all_exports(folder: Path) -> pd.DataFrame:
     transformed_files = []
 
-# Combining all calibration export files in the specified folder into a single DataFrame after transforming them to match the master sheet format.
+    # Combining all calibration export files in the specified folder into a single DataFrame after transforming them to match the master sheet format.
     for file_path in folder.glob("*.xlsx"):
         calibration_data = read_cal_export(file_path)
         metadata = extract_metadata(file_path)
@@ -27,7 +28,7 @@ def process_all_exports(folder: Path) -> pd.DataFrame:
 
         transformed_files.append(transformed_data)
 
-# Stacking all transformed DataFrames into a single DataFrame to create the master sheet.
+    # Stacking all transformed DataFrames into a single DataFrame to create the master sheet.
     master_data = pd.concat(
         transformed_files,
         ignore_index=True,

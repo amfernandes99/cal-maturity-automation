@@ -1,9 +1,12 @@
 import os
 
+from dotenv import load_dotenv
 import pandas as pd
 from google.cloud import bigquery
 
-# 
+load_dotenv()
+
+# Uploading the transformed mater data to BigQuery.
 def push_to_bigquery(df: pd.DataFrame) -> int:
     project_id = os.getenv("GCP_PROJECT_ID")
     dataset_id = os.getenv("BQ_DATASET_ID")
@@ -14,7 +17,7 @@ def push_to_bigquery(df: pd.DataFrame) -> int:
             "Missing BigQuery environment configuration."
         )
 
-# GCP Format - project / dataset / table
+    # GCP Format - project / dataset / table
     full_table_id = f"{project_id}.{dataset_id}.{table_id}"
 
     client = bigquery.Client(project=project_id)

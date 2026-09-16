@@ -4,3 +4,4 @@ xlsxwriter
 google-cloud-bigquery
 pyarrow
 pytest
+python-dotenv

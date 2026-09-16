@@ -23,28 +23,3 @@ def enrich_calibration_data(
     df = df[MASTER_COLUMNS]
 
     return df
-
-
-if __name__ == "__main__":
-    from pathlib import Path
-    from src.helpers.excel_reader import read_cal_export, extract_metadata
-
-    test_file = (
-        Path(__file__).resolve().parents[2]
-        / "sample_data"
-        / "Vehicle_A.xlsx"
-    )
-
-    calibration_data = read_cal_export(test_file)
-    metadata = extract_metadata(test_file)
-
-    transformed_data = enrich_calibration_data(
-        calibration_data,
-        metadata,
-    )
-
-    print(transformed_data.head())
-    print()
-    print(f"Rows transformed: {len(transformed_data)}")
-    print()
-    print(transformed_data.columns.tolist())
